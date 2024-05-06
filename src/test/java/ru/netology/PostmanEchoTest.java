@@ -9,14 +9,14 @@ class PostmanEchoTest {
         String text = "Hello";
         given()
                 .baseUri("https://postman-echo.com")
-                .body("Hi") // отправляемые данные (заголовки и query можно выставлять аналогично)
+                .body(text) // отправляемые данные (заголовки и query можно выставлять аналогично)
 // Выполняемые действия
                 .when()
                 .post("/post")
 // Проверки
                 .then()
                 .statusCode(200)
-                .body("data", org.hamcrest.Matchers.equalTo("Hello"));
+                .body("data", org.hamcrest.Matchers.equalTo(text));
         ;
     }
 }
